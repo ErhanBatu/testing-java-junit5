@@ -1,9 +1,6 @@
 package guru.springframework.sfgpetclinic.controllers;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
@@ -12,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
+@Tag("controllers")
 class IndexControllerTest {
 
     IndexController controller;
@@ -21,7 +19,6 @@ class IndexControllerTest {
         controller = new IndexController();
     }
 
-    //this is gonna be shown on the console
     @DisplayName("Test Proper View name is returned for index page")
     @Test
     void index() {
@@ -64,7 +61,6 @@ class IndexControllerTest {
         });
     }
 
-    //this is gonna fail but it doesn't throw anything, it will be ignored
     @Test
     void testAssumptionTrue() {
 
@@ -77,7 +73,6 @@ class IndexControllerTest {
         assumeTrue("GURU".equalsIgnoreCase("GURU"));
     }
 
-    //it will be enable if os is Mac
     @EnabledOnOs(OS.MAC)
     @Test
     void testMeOnMacOS() {
@@ -98,7 +93,7 @@ class IndexControllerTest {
     void testMeOnJava11() {
     }
 
-    @EnabledIfEnvironmentVariable(named = "USER", matches = "User")
+    @EnabledIfEnvironmentVariable(named = "USER", matches = "jt")
     @Test
     void testIfUserJT() {
     }
